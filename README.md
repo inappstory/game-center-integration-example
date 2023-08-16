@@ -1,2 +1,2 @@
 # game-center-integration-example
-Game center integration examle
+Game center integration example
