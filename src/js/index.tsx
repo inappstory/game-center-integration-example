@@ -5,28 +5,20 @@ import "regenerator-runtime/runtime.js";
 import {App} from "./App";
 import {onAllMediaLoaded} from "../helpers/media";
 
-import {
-    createSdkApi,
-    gameLaunchConfig,
-    gameLoadedSdkCallback,
-    gameLocalData,
-    isWeb,
-    isIos,
-    isAndroid,
-    getDynamicResourceAsset
-} from "@inappstory/game-center-api";
+import GameCenterApi from "@inappstory/game-center-api";
+import {createRoot} from "react-dom/client";
+
 import React from "react";
-import { createRoot } from "react-dom/client";
 
 const main = () => {
 
     const mount = () => {
 
         const mounted = () => {
-            const bgImage = getDynamicResourceAsset("backgroundImage", require("./../../assets/background.jpg"));
+            const bgImage = GameCenterApi.getDynamicResourceAsset("backgroundImage", require("./../../assets/background.jpg"));
 
             const cb = () => {
-                gameLoadedSdkCallback();
+                GameCenterApi.gameLoadedSdkCallback();
             };
 
             const rootElement = document.getElementById("root");
@@ -35,7 +27,7 @@ const main = () => {
 
         };
 
-        createSdkApi({
+        GameCenterApi.createSdkApi({
             mounted,
             // beforeUnmount,
             // onPause: () => {},
@@ -70,23 +62,115 @@ const main = () => {
                     "deviceId": "293f420fc39908d1",
                     "fullScreen": false,
                     "lang": "ru-RU",
-                    "placeholders": [],
+                    "placeholders": [
+                        {
+                            "name": "sadsad",
+                            "type": PlaceholderType.TEXT,
+                            "value": "2222222222222222"
+                        },
+                        {
+                            "name": "oooooooooooo",
+                            "type": PlaceholderType.TEXT,
+                            "value": "ooooooooooo"
+                        },
+                        {
+                            "name": "rrrrrrrrrrr",
+                            "type": PlaceholderType.TEXT,
+                            "value": "rrrrrrrrrrrrr"
+                        },
+                        {
+                            "name": "zvukomania_username",
+                            "type": PlaceholderType.TEXT,
+                            "value": "Default username"
+                        },
+                        {
+                            "name": "pppppppppp",
+                            "type": PlaceholderType.TEXT,
+                            "value": "pppppppppppp"
+                        },
+                        {
+                            "name": "tttttttttt",
+                            "type": PlaceholderType.TEXT,
+                            "value": "ttttttttttttt"
+                        },
+                        {
+                            "name": "iiiiiiiiiiiiiiii",
+                            "type": PlaceholderType.TEXT,
+                            "value": "iiiiiiiiiiiiiiiiii"
+                        },
+                        {
+                            "name": "qqqq",
+                            "type": PlaceholderType.TEXT,
+                            "value": "qqqqqq"
+                        },
+                        {
+                            "name": "uuuuuuuuuuuuu",
+                            "type": PlaceholderType.TEXT,
+                            "value": "uuuuuuuuuuuuuuuu"
+                        },
+                        {
+                            "name": "wwwwww",
+                            "type": PlaceholderType.TEXT,
+                            "value": "wwwwwwwwwww"
+                        },
+                        {
+                            "name": "aaaaaaaaaaaaa",
+                            "type": PlaceholderType.TEXT,
+                            "value": "aaaaaaaaaaaaaaaa"
+                        },
+                        {
+                            "name": "eeeeee",
+                            "type": PlaceholderType.TEXT,
+                            "value": "eeeeeeeeeeee"
+                        },
+                        {
+                            "name": "username",
+                            "type": PlaceholderType.TEXT,
+                            "value": "default username'000"
+                        },
+                        {
+                            "name": "zvukomania_avatar",
+                            "type": PlaceholderType.IMAGE,
+                            "value": "https://i1.sndcdn.com/avatars-000102655488-sr66dh-t500x500.jpg"
+                        },
+                        {
+                            "name": "avatar",
+                            "type": PlaceholderType.IMAGE,
+                            "value": "https://i1.sndcdn.com/avatars-000102655488-sr66dh-t500x500.jpg"
+                        },
+                        {
+                            "name": "img1",
+                            "type": PlaceholderType.IMAGE,
+                            "value": "https://snob.ru/indoc/original_images/8f4/glavnai"
+                        }
+                    ],
                     "safeAreaInsets": {
                         "bottom": 16,
                         "left": 0,
                         "right": 0,
                         "top": 0
                     },
-                    "screenOrientation": "portrait",
+                    "screenOrientation": GameCenterApi.ScreenOrientation.PORTRAIT,
                     "sdkVersion": "1.16.0",
                     "sessionId": "A2glAAAAAAAAAQAAAKTI2WQCCQgAAAAamGs7wP4RcYiEwdMi19Z7aE68fT6QW5S18Oe812f6pw",
-                    "userAgent": "InAppStorySDK/750 Dalvik/2.1.0 (Linux; U; Android 11; XQ-AT51 Build/58.1.A.5.530) Application/258 (com.inappstory.android 3.1.0)"
+                    "userAgent": "InAppStorySDK/750 Dalvik/2.1.0 (Linux; U; Android 11; XQ-AT51 Build/58.1.A.5.530) Application/258 (com.inappstory.android 3.1.0)",
+                    "userId": "",
                 },
 
             });
     }
 
+};
 
+enum PlaceholderType {
+    TEXT = "text",
+    IMAGE = "image",
+}
+
+type Placeholder = {
+    type: PlaceholderType;
+    name: string;
+    value: string;
 };
 
 main();

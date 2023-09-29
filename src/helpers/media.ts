@@ -77,7 +77,7 @@ export function onAllMediaLoaded(slideBox: HTMLElement, cb: () => void) {
     }
     Promise.all(promises).then((values) => {
         cb();
-    });
+    }).catch(cb);
 }
 
 const preloadImage = (src: string) => new Promise(function(resolve, reject) {
