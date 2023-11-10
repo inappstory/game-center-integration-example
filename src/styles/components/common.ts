@@ -167,3 +167,12 @@ export const Image = styled.img<TImage>`
     width: ${({ sWidth }) => `${sWidth}px`};
     height: ${({ sHeight }) => `${sHeight}px`};
 `;
+
+
+export const ScrollView = styled.div`
+        width: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: 100vh;
+        height: 100%;
+`;

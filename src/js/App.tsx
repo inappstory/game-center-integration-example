@@ -14,15 +14,20 @@ export const App = ({backgroundImageSrc, renderedCb}: AppProps) => {
     const openUrl = () => GameCenterApi.openUrl({url: "https://google.com", closeGameReader: true});
     const closeGame = () => GameCenterApi.closeGameReader();
 
+    console.log("GameCenterApi.gameLaunchConfig.clientConfig.placeholders", GameCenterApi.gameLaunchConfig.clientConfig.placeholders);
 
     return <><GlobalStyles />
         <Wrapper>
             <BackgroundImage src={backgroundImageSrc}/>
-            <Placeholders models={GameCenterApi.gameLaunchConfig.clientConfig.placeholders ?? []}/>
-            <C.Divider/>
-            <Button onClick={openUrl}>Open url</Button>
-            <C.Divider/>
-            <Button onClick={closeGame}>Close game</Button>
+            <C.ScrollView>
+                <C.Divider/>
+                <Placeholders models={Array.isArray(GameCenterApi.gameLaunchConfig.clientConfig.placeholders) ? GameCenterApi.gameLaunchConfig.clientConfig.placeholders : []}/>
+                <C.Divider/>
+                <Button onClick={openUrl}>Open url</Button>
+                <C.Divider/>
+                <Button onClick={closeGame}>Close game</Button>
+                <C.Divider/>
+            </C.ScrollView>
         </Wrapper>
     </>;
 };
@@ -75,7 +80,7 @@ const Placeholders = ({models}: {models: Array<Placeholder>}) => {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 5px 15px;
     //border: none;
     font-weight: 400;
     user-select: none;
