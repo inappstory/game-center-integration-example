@@ -1,5 +1,5 @@
 {
-  "name": "dodo-village",
+  "name": "game-center-example",
   "version": "1.0.0",
   "description": "Game center integration example game",
   "private": true,
@@ -52,7 +52,7 @@
     "zip-webpack-plugin": "^4.0.1"
   },
   "dependencies": {
-    "@inappstory/game-center-api": "^1.0.0-rc.12",
+    "@inappstory/game-center-api": "^1.2.1",
     "core-js": "^3.32.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
