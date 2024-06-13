@@ -10,29 +10,13 @@ import { createRoot } from "react-dom/client";
 
 import React from "react";
 
-const gameLoaded = () => {
-    if (GameCenterApi.isSdkSupportGameShouldForegroundCallback()) {
-        GameCenterApi.gameLoadedSdkCallback();
-    } else {
-        // fallback for old sdk versions
-        gameShouldForeground();
-    }
-};
-
-const gameStarted = () => {
-    setTimeout(() => {
-        // Wait for render complete - then remove native loader screen
-        if (GameCenterApi.isSdkSupportGameShouldForegroundCallback()) {
-            GameCenterApi.gameShouldForegroundCallback();
-        } else {
-            GameCenterApi.gameLoadedSdkCallback();
-        }
-    }, 50);
-};
-
 const gameShouldForeground = () => {
     // splash animation finished, now we can start bg music and etc
-    gameStarted();
+
+    setTimeout(() => {
+        // Wait for render complete - then remove native loader screen
+        GameCenterApi.gameShouldForegroundCallback();
+    }, 50);
 };
 
 const main = () => {
@@ -41,7 +25,7 @@ const main = () => {
             const bgImage = GameCenterApi.getDynamicResourceAsset("backgroundImage", require("./../../assets/background.jpg"));
 
             const cb = () => {
-                gameLoaded();
+                GameCenterApi.gameLoadedSdkCallback();
             };
 
             const rootElement = document.getElementById("root");
