@@ -21,7 +21,7 @@ const babelLoader = {
 
 module.exports = {
   entry: [
-    `${paths.src}/js/index.tsx`,
+    `${paths.src}/index.tsx`,
   ],
   output: {
     path: paths.build,

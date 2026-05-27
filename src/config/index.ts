@@ -1,0 +1,1 @@
+export { devGameLaunchConfig } from "./gameLaunchConfig.dev";

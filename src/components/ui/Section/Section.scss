@@ -1,0 +1,19 @@
+.section {
+    margin-bottom: 32px;
+}
+
+.section__title {
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: #000;
+}
+
+.section__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
