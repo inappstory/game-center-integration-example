@@ -1,7 +1,5 @@
 import styled, { css } from "styled-components"
 
-
-
 type TTextProps = Partial<{
     display: string,
     width: string | number;
