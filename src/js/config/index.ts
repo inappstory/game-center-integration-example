@@ -1,1 +1,0 @@
-export { gameLaunchConfig } from "./gameLaunchConfig";

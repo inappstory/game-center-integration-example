@@ -2,15 +2,16 @@ import React from "react";
 // https://github.com/zloirock/core-js
 import "core-js/actual";
 import "regenerator-runtime/runtime.js";
-import { gameLaunchConfig } from "./config";
+import { devGameLaunchConfig } from "./config";
 import { createSdkApi } from "./createSdkApi";
 import { createRoot } from "react-dom/client";
-import { onAllMediaLoaded } from "../helpers";
-import { App } from "./App";
 import GameCenterApi from "@inappstory/game-center-api";
+import { onAllMediaLoaded } from "./helpers";
+import { App } from "./App";
+import "./styles/app.scss";
 
 const mounted = async () => {
-    const bgImage = GameCenterApi.getDynamicResourceAsset("backgroundImage", require("./../../assets/background.jpg"));
+    const bgImage = GameCenterApi.getDynamicResourceAsset("backgroundImage", require("./assets/background.jpg"));
 
     const cb = () => {
         GameCenterApi.gameLoadedSdkCallback();
@@ -23,8 +24,11 @@ const mounted = async () => {
 
 createSdkApi(mounted);
 
-try {
-    window.initGame(gameLaunchConfig);
-} catch (err) {
-    console.error(err);
+// Dev only
+if (process.env.NODE_ENV === "development") {
+    try {
+        window.initGame(devGameLaunchConfig);
+    } catch (err) {
+        console.error(err);
+    }
 }

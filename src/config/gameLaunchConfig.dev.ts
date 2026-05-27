@@ -1,8 +1,7 @@
 import GameCenterApi, { GameLaunchConfig } from "@inappstory/game-center-api";
-import { textPlaceholders, imagePlaceholders } from "./placeholders";
-import { variables } from "./variables";
+import { textPlaceholders, imagePlaceholders, variables } from "./data";
 
-export const gameLaunchConfig: GameLaunchConfig = {
+export const devGameLaunchConfig: GameLaunchConfig = {
     gameInstanceId: 35,
     gameResources: {
         fonts: {},
@@ -38,7 +37,7 @@ export const gameLaunchConfig: GameLaunchConfig = {
         userId: "",
         widescreen: false,
         dir: "ltr",
-        variables,
+        variables: variables,
     },
     authUrl: "",
     payload: "",
