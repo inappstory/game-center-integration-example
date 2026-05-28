@@ -1,7 +1,8 @@
 .vscode
 .DS_Store
 node_modules/
-build/
+build/*
+!build/*.zip
 dist/
 .idea
 ./TASKS.txt

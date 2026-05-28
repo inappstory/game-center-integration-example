@@ -1,6 +1,6 @@
 {
     "name": "game-center-example",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Game center integration example game",
     "private": true,
     "scripts": {
