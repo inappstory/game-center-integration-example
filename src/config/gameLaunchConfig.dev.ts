@@ -1,6 +1,10 @@
 import GameCenterApi, { GameLaunchConfig } from "@inappstory/game-center-api";
 import { textPlaceholders, imagePlaceholders, variables } from "./data";
 
+/**
+ * Local-only launch config used by window.initGame during development.
+ * In production the InAppStory SDK provides the same shape of data through postMessage.
+ */
 export const devGameLaunchConfig: GameLaunchConfig = {
     gameInstanceId: 35,
     gameResources: {

@@ -11,9 +11,12 @@ import { App } from "./App";
 import "./styles/app.scss";
 
 const mounted = async () => {
+    // Resolve a dynamic SDK-provided asset and fall back to the bundled image in local/dev mode.
+    // For example: the "backgroundImage" key is defined in devGameLaunchConfig.gameResources.assets.
     const bgImage = GameCenterApi.getDynamicResourceAsset("backgroundImage", require("./assets/background.jpg"));
 
     const cb = () => {
+        // Report successful game initialization only after required media and first render are ready.
         GameCenterApi.gameLoadedSdkCallback();
     };
 
@@ -24,7 +27,7 @@ const mounted = async () => {
 
 createSdkApi(mounted);
 
-// Dev only
+// Dev only: production launch config is delivered by the InAppStory SDK via postMessage.
 if (process.env.NODE_ENV === "development") {
     try {
         window.initGame(devGameLaunchConfig);

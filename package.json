@@ -6,8 +6,7 @@
     "scripts": {
         "dev": "webpack serve -c config/webpack/dev.js --port 3000",
         "build": "webpack -c config/webpack/prod.js",
-        "analyze": "webpack --analyze -c config/webpack/analyze.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "analyze": "webpack --analyze -c config/webpack/analyze.js"
     },
     "devDependencies": {
         "@babel/core": "7.22.10",

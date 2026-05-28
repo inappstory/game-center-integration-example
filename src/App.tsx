@@ -15,6 +15,7 @@ export const App = ({ backgroundImageSrc, renderedCb }: AppProps) => {
         renderedCb();
     }, []);
 
+    // Runtime configuration is supplied by SDK in production and by devGameLaunchConfig locally.
     const clientConfig = GameCenterApi.gameLaunchConfig.clientConfig;
 
     return (
